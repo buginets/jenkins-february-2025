@@ -40,7 +40,7 @@ node ("terraform") {
 
 withCredentials([usernamePassword(credentialsId: 'aws-creds', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
     stage ("Terraform Init") {
-        sh "terraform init -backend-config=key=${param.region}/terraform.tfvars"
+        sh "terraform init -backend-config=key=${params.region}/terraform.tfvars"
     }
     stage ("Terraform Plan") {
         writeFile file: 'kaizen.tfvars', text: tfvars
