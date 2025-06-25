@@ -21,12 +21,7 @@ node ("kubernetes") {
       }
 
     stage ("test"){
-        sh  """
-        terraform version
-        kubectl version
-        helm version
-        kubectl get nodes
-        """
+          sh "helm upgrade --install apache ./apache"
     }  
       }
     }
