@@ -19,6 +19,10 @@ node ("docker") {
     container ("docker") {
     stage ("Checkout SCM") {
         git branch: 'main', url: 'https://github.com/buginets/jenkins-february-2025.git'
-    }}
+    }
+    stage ("Docker build") {
+        sh "docker build -t buginets/myapache:1.0.0 ."
+    }
+    }
 }
 }
